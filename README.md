@@ -1,6 +1,6 @@
 # Android-App_Music-Player
 ## 源代码在master分支中
-### 功能
+### Android App-音乐播放器功能
 
 - 界面结合DrawerLayout、Toolbar、RecyclerView、FloatingActionBar等组件构成
 - 扫描本地音乐形成歌单（Cusor、ContentResolver）
