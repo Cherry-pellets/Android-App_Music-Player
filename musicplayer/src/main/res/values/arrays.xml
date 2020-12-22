@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="albumImage">
+        <item>@mipmap/qilixiang</item>
+        <item>@mipmap/jiaohuanyusheng</item>
+        <item>@mipmap/weidadediaoxiao</item>
+        <item>@mipmap/shiyiyuedexiaobang</item>
+        <item>@mipmap/yehuimei</item>
+        <item>@mipmap/zhoujielundezhenbiangushi</item>
+        <item>@mipmap/hezijiduihua</item>
+        <item>@mipmap/xingcunzhe</item>
+        <item>@mipmap/changyou</item>
+        <item>@mipmap/yuyan</item>
+        <item>@mipmap/zizhuan</item>
+        <item>@mipmap/feiniaohechan</item>
+    </integer-array>
+    <string-array name="albumName">
+        <item>忽然好想你</item>
+        <item>屋顶</item>
+        <item>曹操</item>
+        <item>江南</item>
+        <item>暧昧</item>
+        <item>爱与痛的边缘</item>
+        <item>约定</item>
+        <item>凤凰花开的路口</item>
+        <item>小酒窝</item>
+        <item>因为爱情</item>
+        <item>后继者</item>
+        <item>飞鸟和蝉</item>
+    </string-array>
+    <string-array name="singerName">
+        <item>五月天</item>
+        <item>周杰伦</item>
+        <item>林俊杰</item>
+        <item>林俊杰</item>
+        <item>王菲</item>
+        <item>王菲</item>
+        <item>王菲</item>
+        <item>胡夏</item>
+        <item>林俊杰</item>
+        <item>王菲</item>
+        <item>任然</item>
+        <item>任然</item>
+    </string-array>
+</resources>
