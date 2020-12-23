@@ -1,2 +1,2 @@
-include ':musicplayer'
+include ':musicPlayerApp'
 rootProject.name='Experiment3'
