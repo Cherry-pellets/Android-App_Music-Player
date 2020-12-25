@@ -28,10 +28,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/songTitle"
-        android:layout_above="@+id/MusicProgress"
+        android:layout_above="@+id/progress_time"
         android:gravity="center_horizontal"
         android:padding="20dp">
-
         <ImageView
             android:layout_width="300dp"
             android:layout_height="300dp"
@@ -44,61 +43,80 @@
             android:gravity="center_horizontal"
             android:text="123454678089765432"/>
     </FrameLayout>
+    <RelativeLayout
+        android:id="@+id/progress_time"
+        android:layout_above="@+id/linearLayoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp">
+        <TextView
+            android:id="@+id/currentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="00:00"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+        <SeekBar
+            android:id="@+id/MusicProgress"
+            android:layout_width="184dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/currentTime"
+            android:layout_toLeftOf="@+id/totalTime"
+            android:max="100"
+            android:indeterminate="false"/>
+        <TextView
+            android:id="@+id/totalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="00:00"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+    </RelativeLayout>
     <LinearLayout
+        android:id="@+id/linearLayoutBtn"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:gravity="center_vertical"
         android:layout_marginBottom="20dp">
         <ImageView
+            android:id="@+id/playMode"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:id="@+id/imageView"
             android:layout_weight="1"
             android:layout_margin="10dp"
-            android:src="@drawable/recyclemode"/>
+            android:src="@drawable/orderplay"/>
         <ImageView
+            android:id="@+id/musicPrevious"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:id="@+id/musicprevious"
             android:layout_weight="1"
             android:layout_margin="10dp"
             android:src="@drawable/musicprevious"/>
 
         <ImageView
+            android:id="@+id/musicPlay"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:id="@+id/Musicplay"
             android:layout_weight="1"
             android:layout_margin="10dp"
             android:src="@drawable/pause"/>
         <ImageView
+            android:id="@+id/musicNext"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:id="@+id/musicnext"
             android:layout_weight="1"
             android:layout_margin="10dp"
             android:src="@drawable/musicnext"/>
 
         <ImageView
+            android:id="@+id/musicMenu"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/musicmenu"
             android:layout_weight="1"
             android:layout_margin="10dp"
             android:src="@drawable/musiclist"/>
     </LinearLayout>
-    <SeekBar
-        android:layout_width="fill_parent"
-        android:layout_height="20dp"
-        android:id="@+id/MusicProgress"
-        android:max="100"
-        android:indeterminate="false"
-        android:layout_above="@+id/linearLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"/>
 </RelativeLayout>

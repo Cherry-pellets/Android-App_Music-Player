@@ -64,7 +64,7 @@ class LrcParse(path: String) {
 
     }
 
-//    单行解析
+    //    单行解析
     private fun decodeLine(str: String): LrcInfo {
         if (str.startsWith("[ti:")) {
             // 歌曲名

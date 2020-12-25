@@ -1,6 +1,8 @@
 package com.example.musicplayer
 
-class Album(val id: Long, val title: String, val artist: String, val duration: Long, val url: String) {
+import java.io.Serializable
+
+class Album(val id: Long, val title: String, val artist: String, val duration: Long, val url: String):Serializable {
 //    var name = ""
 //    var id: Long = 0
 //    var title: String? = null//音乐标题

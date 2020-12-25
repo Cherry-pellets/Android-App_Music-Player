@@ -19,6 +19,7 @@ class LrcView : TextView {
     private val fontSize = 40f        //文本大小
     private var index = 0              //list集合下标
     private var infos: LrcInfo? = null              //歌词信息
+    private val TAG = "LrcView"
 
     fun setmLrcList(infos: LrcInfo) {
         this.infos = infos
@@ -49,7 +50,7 @@ class LrcView : TextView {
         notCurrentPaint!!.textAlign = Paint.Align.CENTER
     }
 
-//    绘画歌词
+    //    绘画歌词
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         if (canvas == null) {
@@ -89,11 +90,11 @@ class LrcView : TextView {
             }
         } catch (e: Exception) {
             text = "暂时没有歌词......"
-            Log.d("MusicService", "--------- $e")
+            Log.d(TAG, "--------- $e")
         }
     }
 
-//    当view大小改变时
+    //    当view大小改变时
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         this.width = w.toFloat()

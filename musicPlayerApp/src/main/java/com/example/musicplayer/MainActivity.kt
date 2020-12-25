@@ -1,6 +1,8 @@
 package com.example.musicplayer
 
 import android.Manifest
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -12,16 +14,22 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.provider.MediaStore
 import android.widget.Toast
 import android.content.pm.PackageManager
+import android.nfc.Tag
+import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.annotation.NonNull
+import android.widget.AdapterView
+import java.io.Serializable
+import java.lang.Exception
 
 // MainActivity.kt
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     // 存储数据的数组列表
     var albumList = ArrayList<Album>()
-    private lateinit var  song:List<Album>
+    lateinit var  songList:List<Album>
     private var topBtn: FloatingActionButton? = null
 
+    private val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -44,12 +52,31 @@ class MainActivity : AppCompatActivity() {
         })
     }
     private fun initAlbum() {
-        song = getSong()
-        Toast.makeText(this, "111${song.size}", Toast.LENGTH_SHORT).show()
-        getData(song)
+        songList = getSong()
+        MusicActivity().songList = songList
+        Toast.makeText(this, "111${songList.size}", Toast.LENGTH_SHORT).show()
+        getData(songList)
         val layoutManager = LinearLayoutManager(this)
         recycleView.layoutManager = layoutManager
         val adapter = AlbumAdapter(albumList)
+        adapter.setOnItemClickListerner(object:AlbumAdapter.OnItemClickListerner{
+            override fun onItemClick(position: Int, context: Context) {
+                Log.d(TAG, "你点击了$position")
+                try {
+                    val musicIntent = Intent(context, MusicActivity::class.java)
+                    //当前播放的位置
+                    musicIntent.putExtra("position", position)
+                    var albumList1 = AlbumList(songList)
+                    val bundle = Bundle()
+                    bundle.putSerializable("songList", albumList1)
+                    musicIntent.putExtras(bundle)
+                    //启动音乐播放界面
+                    startActivity(musicIntent)
+                } catch (e: Exception) {
+                    Log.d(TAG, "$e")
+                }
+            }
+        })
         recycleView.adapter = adapter
         adapter!!.notifyDataSetChanged()
     }
@@ -72,7 +99,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 100) {
             if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 //授权成功
-              initAlbum()
+                initAlbum()
             } else {
                 //授权拒绝
                 Toast.makeText(this, "请授权！", Toast.LENGTH_SHORT).show()

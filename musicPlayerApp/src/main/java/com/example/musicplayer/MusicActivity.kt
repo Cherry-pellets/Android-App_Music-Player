@@ -8,26 +8,66 @@ import android.content.*
 import android.os.Handler
 import android.os.Message
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.content.Intent
+import android.os.Build
+import android.annotation.TargetApi
+import java.lang.Exception
+import java.util.*
 
-class MusicActivity : Activity() {
-     var MusicPlay: ImageView? = null
+class MusicActivity : Activity(), View.OnClickListener{
+    //    歌曲列表
+    var  songList:List<Album>? = null
+    //    播放界面的按钮组合
+    var musicPlay: ImageView? = null
+    var musicPrevious: ImageView? = null
+    var musicNext: ImageView? = null
+    var playMode: ImageView? = null
+    var playMenu: ImageView? = null
+    private val isOrderPlay = 0//顺序播放
+    private val isListLoop = 1//表示列表循环
+    private val isRepeatone = 2//单曲循环
+    private val isRandomPlay = 3//随机
+    private var playModeFlag = 0 // 默认顺序播放
+    private var isPlaying = true
+    private var isPause = false
+
+    //    进度条和时间
+    internal lateinit var seekBar: SeekBar
+    var currentTimeImg:TextView? = null
+    var totalTitmeImg:TextView? = null
+    var position = 0
+    var currentTime = 0
+    var totalTime = 0
+    //    需要显示的歌曲名和歌手名
+    lateinit var musicTitle: TextView
+    lateinit var musicArtist: TextView
+    //    自定义的歌词布局
     lateinit var lrcView : LrcView
 
     private val TAG = "MusicActivity"
     private val NOTIFICATION_BTN_CHANGE = "button in notification has been clicked"
+    val UPDATE_ACTION = "UPDATE_ACTION"  //更新动作
+    val CTL_ACTION = "CTL_ACTION"        //控制动作
+    val MUSIC_CURRENT = "MUSIC_CURRENT"  //音乐当前时间改变动作
+    val MUSIC_DURATION = "MUSIC_DURATION"//音乐播放长度改变动作
+    val MUSIC_PLAYING = "MUSIC_PLAYING"  //音乐正在播放动作
+    val REPEAT_ACTION = "REPEAT_ACTION"  //音乐重复播放动作
+    val SHUFFLE_ACTION = "RANDOM_ACTION"//音乐随机播放动作
+    val PLAY_STATUE = "PLAY_STATUE"      //更新播放状态
 
     var mBound: Boolean? = false
-    //记录鼠标点击了几次
+    //    记录鼠标点击了几次
     var flag = false
     lateinit var mService: MusicService
-    internal lateinit var seekBar: SeekBar
-    //多线程，后台更新UI
+
+    //   多线程，后台更新UI
     internal lateinit var myThread: Thread
-    //控制后台线程退出
+    //   控制后台线程退出
     internal var playStatus = true
-    //处理进度条更新
+    //   0处理进度条更新、1处理通知栏发来的按钮点击信息
     internal var mHandler: Handler = object : Handler() {
         override fun handleMessage(msg: Message) {
             when (msg.what) {
@@ -41,15 +81,15 @@ class MusicActivity : Activity() {
                     //设置seekbar的实际位置
                     seekBar.progress = position
                 }
-                1 -> {
+                999 -> {
                     handlePlayMusic()
                 }
             }
 
         }
     }
-//    通过bindService与service通信
-    private val mConnection = object : ServiceConnection {
+    //   通过bindService与service通信
+/*    private val mConnection = object : ServiceConnection {
         override fun onServiceConnected(className: ComponentName, binder: IBinder) {
             val myBinder = binder as MusicService.MyBinder
             //获取service
@@ -58,22 +98,51 @@ class MusicActivity : Activity() {
             mBound = true
             //开启线程，更新UI
             myThread.start()
-            MusicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.play))
+            musicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.play))
             mService.play()
             flag = true
         }
         override fun onServiceDisconnected(arg0: ComponentName) {
             mBound = false
         }
-    }
-
+    }*/
+//   接收广播，更新播放页面的播放状态
     private val musicReceiver = object: BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             when(intent?.action) {
                 NOTIFICATION_BTN_CHANGE -> {
                     val msg = Message()
-                    msg.what = 1
+                    msg.what = 999
                     mHandler.sendMessage(msg)
+                }
+                MUSIC_CURRENT -> {
+                    // 当前时间更新
+                    currentTime = intent.getIntExtra("currentTime", -1)
+                    seekBar.progress = currentTime
+                    currentTimeImg?.text = formatDuring(currentTime.toLong())
+                }
+                MUSIC_DURATION -> {
+                    //总时间更新
+                    totalTime = intent.getIntExtra("duration", -1)
+                    seekBar.max = totalTime
+                    totalTitmeImg?.text = formatDuring(totalTime.toLong())
+                }
+                UPDATE_ACTION -> {
+                    position = intent.getIntExtra("position", -1)
+                    val url = songList!![position].url
+                    musicTitle.text = songList!![position].title
+                    musicArtist.text = songList!![position].artist
+                    totalTitmeImg?.text = formatDuring( songList!![position].duration)
+                }
+                PLAY_STATUE -> {
+                    val playstatue = intent.getBooleanExtra("playstatue", true)
+                    if (playstatue) {
+                        musicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.play))
+                        isPlaying = true
+                    } else {
+                        musicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.pause))
+                        isPlaying = false
+                    }
                 }
             }
         }
@@ -82,56 +151,184 @@ class MusicActivity : Activity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_music)
+        initView()
 
-        Log.d(TAG, "musicActivity onCreate")
-//        播放按钮
-        MusicPlay = findViewById(R.id.Musicplay)
-//        获取歌词布局
-        lrcView = findViewById(R.id.lrcView)
-        Log.d(TAG, "init lrcView ---- ${lrcView.text}")
-//        显示歌手和歌曲名
-        val musicTilte: TextView = findViewById(R.id.music_title)
-        val musicArtist: TextView = findViewById(R.id.music_artist)
-        musicTilte.text = intent.getStringExtra("title")
-        musicArtist.text = intent.getStringExtra("artist")
-
-        //定义一个新线程，用来发送消息，通知更新UI
-        myThread = Thread(UpdateProgress())
-        //绑定service;
-        val serviceIntent = Intent(this@MusicActivity, MusicService::class.java)
-        //如果未绑定，则进行绑定,第三个参数是一个标志，它表明绑定中的操作．它一般应是BIND_AUTO_CREATE，这样就会在service不存在时创建一个
-        if ((!mBound!!)!!) {
-            bindService(serviceIntent, mConnection, Context.BIND_AUTO_CREATE)
+        Log.d(TAG, "music activity onCreate")
+        position = intent.getIntExtra("position", -1)
+        val albumList = intent.getSerializableExtra("songList") as AlbumList
+        songList = albumList.albumList
+        Log.d(TAG, songList!![0].artist)
+        try {
+            musicArtist.text = songList!![position].artist
+            musicTitle.text = songList!![position].title
+        } catch (e: Exception) {
+            Log.d(TAG, "------ $e")
         }
-        seekBar = findViewById(R.id.MusicProgress) as SeekBar
+//        注册广播
+        val filter = IntentFilter()
+        filter.addAction(NOTIFICATION_BTN_CHANGE)
+        filter.addAction(UPDATE_ACTION)
+        filter.addAction(MUSIC_CURRENT)
+        filter.addAction(MUSIC_DURATION)
+        filter.addAction(PLAY_STATUE)
+        registerReceiver(musicReceiver, filter)
+
+        //设置响应事件
+        musicNext!!.setOnClickListener(this)
+        musicPrevious!!.setOnClickListener(this)
+        playMenu!!.setOnClickListener(this)
+        playMode!!.setOnClickListener(this)
+        musicPlay!!.setOnClickListener(this)
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onStopTrackingTouch(seekBar: SeekBar) {
                 //手动调节进度
-                // TODO Auto-generated method stub
                 //seekbar的拖动位置
                 val dest = seekBar.progress
+                changeProgress(dest)
                 //seekbar的最大值
-                val max = seekBar.max
+//                val max = seekBar.max
                 //调用service调节播放进度
-                mService.setProgress(max, dest)
+//                mService.setProgress(max, dest)
             }
             override fun onProgressChanged(arg0: SeekBar, arg1: Int, arg2: Boolean) {
-                // TODO Auto-generated method stub
-
             }
             override fun onStartTrackingTouch(arg0: SeekBar) {
-                // TODO Auto-generated method stub
             }
         })
+        playMusic()
+//        musicPlay!!.setOnClickListener{
+//            handlePlayMusic()
+//        }
+    }
 
-        MusicPlay!!.setOnClickListener{
-            handlePlayMusic()
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onClick(v: View) {
+        val intent = Intent(this, MusicService::class.java)
+        val bundle = Bundle()
+        bundle.putSerializable("songList",AlbumList(songList!!))
+        intent.putExtras(bundle)
+        intent.putExtra("position", position)
+        when (v.id) {
+            R.id.musicPlay -> {
+                if (isPlaying) {
+                    musicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.pause))
+                    intent.putExtra("MSG", PlayerMSG.MSG.PAUSE_MSG)
+                    startService(intent)
+                    isPlaying = false
+                } else {
+                    musicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.play))
+                    intent.putExtra("MSG", PlayerMSG.MSG.CONTINUE_MSG)
+                    startService(intent)
+                    isPlaying = true
+                }
+            }
+            R.id.playMode -> setPlayMOde()
+            R.id.musicNext -> playNextMusic()
+            R.id.musicPrevious -> playPreviousMusic()
+            R.id.musicMenu -> {
+            }
+            else -> {
+            }
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    fun setPlayMOde() {
+        playModeFlag++
+        val intent = Intent(CTL_ACTION)
+        intent.putExtra("control", playModeFlag)
+        sendBroadcast(intent)
+        when (playModeFlag) {
+            isOrderPlay -> playMode!!.setImageDrawable(resources.getDrawable(R.drawable.orderplay))
+            isListLoop -> playMode!!.setImageDrawable(resources.getDrawable(R.drawable.recyclemode))
+            isRepeatone -> playMode!!.setImageDrawable(resources.getDrawable(R.drawable.singleplay))
+            isRandomPlay -> {
+                playMode!!.setImageDrawable(resources.getDrawable(R.drawable.randomplay))
+                playModeFlag = -1
+            }
+            else -> {
+            }
         }
 
-//        接收Service中关于通知栏按钮点击的广播
-        val filter = IntentFilter()
-        filter.addAction(NOTIFICATION_BTN_CHANGE)
-        registerReceiver(musicReceiver, filter)
+    }
+    //播放音乐
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    fun playMusic() {
+        isPlaying = true
+        musicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.play, null))
+        // 开始播放的时候为顺序播放
+        val intent = Intent(this, MusicService::class.java)
+        intent.putExtra("url", songList!![position].url)
+        intent.putExtra("position", position)
+        intent.putExtra("MSG", PlayerMSG.MSG.PLAY_MSG)
+//        MusicService().songList = songList!!
+        val bundle = Bundle()
+        bundle.putSerializable("songList",AlbumList(songList!!))
+        intent.putExtras(bundle)
+        startService(intent)
+    }
+    fun changeProgress(progress: Int) {
+        val intent = Intent(this, MusicService::class.java)
+        intent.putExtra("url", songList!![position].url)
+        intent.putExtra("position", position)
+        intent.putExtra("MSG", PlayerMSG.MSG.PROGRESS_CHANGE)
+        intent.putExtra("progress", progress)
+        val bundle = Bundle()
+        bundle.putSerializable("songList",AlbumList(songList!!))
+        intent.putExtras(bundle)
+        intent.putExtra("position", position)
+        startService(intent)
+    }
+    //播放上一首音乐
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    fun playPreviousMusic() {
+        position -= 1
+        //   musicPlay.setImageDrawable(getResources().getDrawable(R.drawable.musicpause,null));
+
+        if (position < 0) {
+            position = songList!!.size - 1
+        }
+        val mp3Info = songList!![position]
+        musicTitle.text = mp3Info.title
+        musicArtist.text = mp3Info.artist
+        val intent = Intent(this, MusicService::class.java)
+        intent.putExtra("url", mp3Info.url)
+        intent.putExtra("position", position)
+        intent.putExtra("MSG", PlayerMSG.MSG.PRIVIOUS_MSG)
+        val bundle = Bundle()
+        bundle.putSerializable("songList",AlbumList(songList!!))
+        intent.putExtras(bundle)
+        startService(intent)
+        isPlaying = true
+        musicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.play, null))
+    }
+
+    //播放下一首音乐
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    fun playNextMusic() {
+        //判断是否是随机播放，因为随机播放设置后，playmodeflag变为-1了
+        if (playModeFlag === -1) {
+            val random = Random()
+            position = random.nextInt(songList!!.size)
+        } else
+            position += 1
+        if (position >= songList!!.size)
+            position = 0
+
+        val mp3Info = songList!![position]
+        musicTitle.text = mp3Info.title
+        musicArtist.text = mp3Info.artist
+        val intent = Intent(this, MusicService::class.java)
+        intent.putExtra("url", mp3Info.url)
+        intent.putExtra("position", position)
+        intent.putExtra("MSG", PlayerMSG.MSG.NEXT_MSG)
+        val bundle = Bundle()
+        bundle.putSerializable("songList",AlbumList(songList!!))
+        intent.putExtras(bundle)
+        startService(intent)
+        musicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.play, null))
+        isPlaying = true
+
     }
 
     //实现runnable接口，多线程实时更新进度条
@@ -143,7 +340,6 @@ class MusicActivity : Activity() {
         internal var milliseconds = 100
         internal var progress: Double = 0.toDouble()
         override fun run() {
-            // TODO Auto-generated method stub
             //用来标识是否还在播放状态，用来控制线程退出
             while (playStatus) {
                 try {
@@ -162,7 +358,6 @@ class MusicActivity : Activity() {
                     //Thread.currentThread().sleep(milliseconds);
                     //每隔100ms更新一次UI
                 } catch (e: InterruptedException) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace()
                 }
 
@@ -182,18 +377,48 @@ class MusicActivity : Activity() {
         unregisterReceiver(musicReceiver)
         super.onDestroy()
     }
-     fun handlePlayMusic() {
-        Log.d(TAG, "handle music start")
-        if (mBound!! && flag) {
-            MusicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.pause))
-            mService.pause()
-            flag = false
-        } else {
-            MusicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.play))
-            mService.play()
-            flag = true
+    fun handlePlayMusic() {
+        val intent = Intent(this, MusicService::class.java)
+        val bundle = Bundle()
+        bundle.putSerializable("songList",AlbumList(songList!!))
+        intent.putExtras(bundle)
+        intent.putExtra("position", position)
+        try {
+            if (isPlaying) {
+                musicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.pause))
+                intent.putExtra("MSG", PlayerMSG.MSG.PAUSE_MSG)
+                startService(intent)
+                isPlaying = false
+            } else {
+                musicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.play))
+                intent.putExtra("MSG", PlayerMSG.MSG.CONTINUE_MSG)
+                startService(intent)
+                isPlaying = true
+            }
+        } catch (e:Exception) {
+            Log.d(TAG, "--- handle music play --- $e")
         }
-        mService.updateNotification()
-        Log.d(TAG, "handle music end")
+    }
+
+    //   转换毫秒数为时间模式，一般都是分钟数，音乐文件
+    fun formatDuring(mss: Long): String {
+        val days = mss / (1000 * 60 * 60 * 24)
+        val hours = mss % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)
+        val minutes = mss % (1000 * 60 * 60) / (1000 * 60)
+        val seconds = mss % (1000 * 60) / 1000
+        return String.format("%02d", minutes) + ":" + String.format("%02d", seconds)
+    }
+    //初始化控件
+    fun initView() {
+        musicPlay = findViewById(R.id.musicPlay)
+        musicNext = findViewById(R.id.musicNext)
+        musicPrevious = findViewById(R.id.musicPrevious)
+        playMenu = findViewById(R.id.musicMenu)
+        playMode = findViewById(R.id.playMode)
+        totalTitmeImg = findViewById(R.id.totalTime)
+        currentTimeImg = findViewById(R.id.currentTime)
+        seekBar = findViewById(R.id.MusicProgress)
+        musicTitle = findViewById(R.id.music_title)
+        musicArtist = findViewById(R.id.music_artist)
     }
 }

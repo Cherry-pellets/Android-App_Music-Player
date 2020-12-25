@@ -6,6 +6,7 @@
         <item name="colorPrimary">#F0E68C</item>
         <item name="colorPrimaryDark">#BDB76B</item>
         <item name="colorAccent">#F0E68C</item>
+        <!--图标按钮颜色#ADD8E6淡蓝色-->
     </style>
 
     <style name="TollBarTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
