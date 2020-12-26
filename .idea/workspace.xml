@@ -6,42 +6,14 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d706842-d74d-47e1-ae28-cb795f4c041c" name="Default Changelist" comment="完善播放功能；完成上一首/下一首/切换播放模式功能">
-      <change afterPath="$PROJECT_DIR$/musicPlayerApp/src/main/res/drawable/orderplay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/musicPlayerApp/src/main/res/drawable/randomplay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/musicPlayerApp/src/main/res/drawable/recycleplay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/musicPlayerApp/src/main/res/drawable/singleplay.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+    <list default="true" id="5d706842-d74d-47e1-ae28-cb795f4c041c" name="Default Changelist" comment="歌词同步滚动功能">
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Experiment3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Experiment3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayerApp/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/music1.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/凤凰花开的路口.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/后继者.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/因为爱情.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/小酒窝.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/屋顶.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/暧昧.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/曹操.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/江南.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/爱与痛的边缘.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/突然好想你.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/约定.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/assets/飞鸟和蝉.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/AlbumAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/AlbumAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/LrcInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/LrcInfo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/LrcParse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/LrcParse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/LrcView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/LrcView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MusicActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MusicActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MusicService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MusicService.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,7 +43,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MusicActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="8074">
               <caret line="384" column="49" selection-start-line="384" selection-start-column="49" selection-end-line="384" selection-end-column="49" />
             </state>
           </provider>
@@ -80,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MusicService.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="433" column="17" lean-forward="true" selection-start-line="433" selection-start-column="17" selection-end-line="433" selection-end-column="17" />
+            <state relative-caret-position="9262">
+              <caret line="433" column="17" selection-start-line="433" selection-start-column="17" selection-end-line="433" selection-end-column="17" />
               <folding>
                 <element signature="e#33#476#0" expanded="true" />
               </folding>
@@ -93,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/PlayerMSG.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
-              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -102,66 +74,66 @@
         <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/res/anim/lrc_anim.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="66">
-              <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="37" column="33" lean-forward="true" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+            <state relative-caret-position="814">
+              <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
             </state>
           </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/res/layout/activity_music.xml">
-          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="116" column="40" lean-forward="true" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
+            <state relative-caret-position="2552">
+              <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
             </state>
           </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/res/layout/album_item.xml">
-          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="50" column="46" lean-forward="true" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
+            <state relative-caret-position="1100">
+              <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
             </state>
           </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/res/layout/nav_header.xml">
-          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+            <state relative-caret-position="396">
+              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
             </state>
           </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/res/layout/notification.xml">
-          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="31" column="47" lean-forward="true" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+            <state relative-caret-position="113">
+              <caret line="34" column="38" lean-forward="true" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
             </state>
           </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MainActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="144" column="37" lean-forward="true" selection-start-line="144" selection-start-column="37" selection-end-line="144" selection-end-column="37" />
+            <state relative-caret-position="2728">
+              <caret line="144" column="37" selection-start-line="144" selection-start-column="37" selection-end-line="144" selection-end-column="37" />
               <folding>
                 <element signature="e#33#786#0" expanded="true" />
               </folding>
@@ -204,7 +176,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="369" />
+    <option name="x" value="228" />
     <option name="width" value="1539" />
     <option name="height" value="1032" />
   </component>
@@ -214,58 +186,15 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="Experiment3" type="1abcf292:AndroidViewProjectNode" />
               <item name="musicPlayerApp" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="Experiment3" type="1abcf292:AndroidViewProjectNode" />
-              <item name="musicPlayerApp" type="feadf853:AndroidModuleNode" />
-              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
-            </path>
-            <path>
-              <item name="Experiment3" type="1abcf292:AndroidViewProjectNode" />
-              <item name="musicPlayerApp" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="Experiment3" type="1abcf292:AndroidViewProjectNode" />
-              <item name="musicPlayerApp" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="musicplayer" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Experiment3" type="1abcf292:AndroidViewProjectNode" />
-              <item name="musicPlayerApp" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="Experiment3" type="1abcf292:AndroidViewProjectNode" />
-              <item name="musicPlayerApp" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="anim" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="Experiment3" type="1abcf292:AndroidViewProjectNode" />
-              <item name="musicPlayerApp" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Experiment3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Experiment3" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -517,11 +446,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="246" y="0" width="1026" height="688" extended-state="0" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.27892563" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.283751" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -535,8 +464,8 @@
       <window_info anchor="bottom" id="Debug" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.3285968" />
-      <window_info anchor="bottom" id="Version Control" order="6" weight="0.32733813" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.32446808" />
+      <window_info anchor="bottom" id="Version Control" order="6" weight="0.6500888" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.3250444" />
       <window_info anchor="bottom" id="Find" order="8" />
       <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
@@ -547,11 +476,38 @@
       <window_info anchor="right" id="Preview" order="5" />
     </layout>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="已完成：歌单显示，滑动菜单，音乐播放，通知栏同步显示与控制" />
     <MESSAGE value="已完成：歌单显示，滑动菜单，音乐播放，通知栏同步显示与控制&#10;待完成：歌词同步显示" />
     <MESSAGE value="完善播放功能；完成上一首/下一首/切换播放模式功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善播放功能；完成上一首/下一首/切换播放模式功能" />
+    <MESSAGE value="歌词同步滚动功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="歌词同步滚动功能" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
@@ -644,27 +600,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MainActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="144" column="37" lean-forward="true" selection-start-line="144" selection-start-column="37" selection-end-line="144" selection-end-column="37" />
-          <folding>
-            <element signature="e#33#786#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MusicActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="8074">
           <caret line="384" column="49" selection-start-line="384" selection-start-column="49" selection-end-line="384" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MusicService.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="433" column="17" lean-forward="true" selection-start-line="433" selection-start-column="17" selection-end-line="433" selection-end-column="17" />
+        <state relative-caret-position="9262">
+          <caret line="433" column="17" selection-start-line="433" selection-start-column="17" selection-end-line="433" selection-end-column="17" />
           <folding>
             <element signature="e#33#476#0" expanded="true" />
           </folding>
@@ -674,56 +620,66 @@
     <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/PlayerMSG.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/res/anim/lrc_anim.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
-          <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="37" column="33" lean-forward="true" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+        <state relative-caret-position="814">
+          <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/res/layout/activity_music.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="116" column="40" lean-forward="true" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
+        <state relative-caret-position="2552">
+          <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/res/layout/album_item.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="50" column="46" lean-forward="true" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
+        <state relative-caret-position="1100">
+          <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/res/layout/nav_header.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+        <state relative-caret-position="396">
+          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/java/com/example/musicplayer/MainActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2728">
+          <caret line="144" column="37" selection-start-line="144" selection-start-column="37" selection-end-line="144" selection-end-column="37" />
+          <folding>
+            <element signature="e#33#786#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/musicPlayerApp/src/main/res/layout/notification.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="31" column="47" lean-forward="true" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+        <state relative-caret-position="113">
+          <caret line="34" column="38" lean-forward="true" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
   </component>
 </project>
