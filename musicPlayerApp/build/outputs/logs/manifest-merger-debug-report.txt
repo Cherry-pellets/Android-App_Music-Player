@@ -1,0 +1,195 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:2:1-36:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\e9641351be4ff2f82a7cddde89cdc5cc\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\177f0ed3e8a0cdf562e4ea464e7eaddf\material-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\dc7bb060ced8d0b7d44755a9d9c21e45\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\6604cd1562e3376aa11481e1091bb0b0\core-ktx-1.3.2\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\f2304edbe31cf29abb592acc14f7dc40\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\2decefe6445f181eb707fffdb87e64ad\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\6589ea9df5e4c5732121f087e6d0e86b\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [de.hdodenhof:circleimageview:3.0.1] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d1be307987d3f5e5dbf1274e557900fa\circleimageview-3.0.1\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\6ad38dfac4e106a4ff4e5e048c9d7854\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\9c96e3c7610a71f64d933abf5d989c41\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\17d12854311426b7d1b4b15e605e7a21\appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\9eeb03172080be4be809eb3b789602a2\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\40bc7c61bac6f76d8b8baba1e6746ffa\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d81313297acd4b62a12e1c4be346ea86\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\b403c837ac7d55e559d7b654aa580176\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\13dc468f7cfee2eb01713f4b7958d2e6\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\8042381f1240df5f98ac8c5a464644dd\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\2485cb75ca766726d2f85318526894e3\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d4d6f1b618f6740b3852fbc0a4f6708f\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\47bf1c1672b530aea741a2298486de75\activity-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.3.2] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\2ccfdb7e7a53b704caa9d7f2a21e6551\core-1.3.2\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\5aa6e1ee8a4aa87ed09e4136bb1359d6\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d5a39d8f51fcfc1b19c3ec4132b72e21\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\8be5234bafda9ab14ed7f88c9dd40d77\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\621e01429d79a08e6530f2907ad873bf\savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\e05a230acf535e3dec39f0f39ed5f0ca\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\004fb91108e1b1927119709e2ff43030\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\3a3ed459510bf208b94d56b861c80196\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\ab93a8dbadb16e1d4464b7fe897665b9\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\1a03c688fd0be1e0d5393144f4840983\annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
+INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:2:1-36:12
+	package
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:3:5-38
+		INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+		INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:2:1-36:12
+		INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:2:1-36:12
+		INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:5:5-80
+	android:name
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:5:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:6:5-80
+	android:name
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:6:22-78
+application
+ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:8:5-34:19
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\e9641351be4ff2f82a7cddde89cdc5cc\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\e9641351be4ff2f82a7cddde89cdc5cc\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\177f0ed3e8a0cdf562e4ea464e7eaddf\material-1.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\177f0ed3e8a0cdf562e4ea464e7eaddf\material-1.2.1\AndroidManifest.xml:22:5-20
+MERGED from [de.hdodenhof:circleimageview:3.0.1] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d1be307987d3f5e5dbf1274e557900fa\circleimageview-3.0.1\AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:3.0.1] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d1be307987d3f5e5dbf1274e557900fa\circleimageview-3.0.1\AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.3.2] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\2ccfdb7e7a53b704caa9d7f2a21e6551\core-1.3.2\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.2] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\2ccfdb7e7a53b704caa9d7f2a21e6551\core-1.3.2\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\5aa6e1ee8a4aa87ed09e4136bb1359d6\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\5aa6e1ee8a4aa87ed09e4136bb1359d6\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+	android:requestLegacyExternalStorage
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:9:9-52
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.2] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\2ccfdb7e7a53b704caa9d7f2a21e6551\core-1.3.2\AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:14:9-35
+	android:label
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:12:9-41
+	android:roundIcon
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:13:9-54
+	android:icon
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:11:9-43
+	android:allowBackup
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:10:9-35
+	android:theme
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:15:9-40
+activity#com.example.musicplayer.MusicActivity
+ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:17:9-82
+	android:launchMode
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:17:49-79
+	android:name
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:17:19-48
+service#com.example.musicplayer.MusicService
+ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:19:9-22:38
+	android:enabled
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:21:13-35
+	android:exported
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:22:13-36
+	android:name
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:20:13-41
+activity#com.example.musicplayer.MainActivity
+ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:24:9-33:20
+	android:label
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:26:13-33
+	android:launchMode
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:27:13-43
+	android:name
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:25:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:28:13-32:29
+action#android.intent.action.MAIN
+ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:29:17-69
+	android:name
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:29:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:31:17-77
+	android:name
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml:31:27-74
+uses-sdk
+INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\e9641351be4ff2f82a7cddde89cdc5cc\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\e9641351be4ff2f82a7cddde89cdc5cc\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\177f0ed3e8a0cdf562e4ea464e7eaddf\material-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\177f0ed3e8a0cdf562e4ea464e7eaddf\material-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\dc7bb060ced8d0b7d44755a9d9c21e45\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\dc7bb060ced8d0b7d44755a9d9c21e45\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\6604cd1562e3376aa11481e1091bb0b0\core-ktx-1.3.2\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\6604cd1562e3376aa11481e1091bb0b0\core-ktx-1.3.2\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\f2304edbe31cf29abb592acc14f7dc40\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\f2304edbe31cf29abb592acc14f7dc40\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\2decefe6445f181eb707fffdb87e64ad\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\2decefe6445f181eb707fffdb87e64ad\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\6589ea9df5e4c5732121f087e6d0e86b\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\6589ea9df5e4c5732121f087e6d0e86b\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [de.hdodenhof:circleimageview:3.0.1] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d1be307987d3f5e5dbf1274e557900fa\circleimageview-3.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:3.0.1] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d1be307987d3f5e5dbf1274e557900fa\circleimageview-3.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\6ad38dfac4e106a4ff4e5e048c9d7854\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\6ad38dfac4e106a4ff4e5e048c9d7854\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\9c96e3c7610a71f64d933abf5d989c41\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\9c96e3c7610a71f64d933abf5d989c41\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\17d12854311426b7d1b4b15e605e7a21\appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\17d12854311426b7d1b4b15e605e7a21\appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\9eeb03172080be4be809eb3b789602a2\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\9eeb03172080be4be809eb3b789602a2\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\40bc7c61bac6f76d8b8baba1e6746ffa\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\40bc7c61bac6f76d8b8baba1e6746ffa\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d81313297acd4b62a12e1c4be346ea86\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d81313297acd4b62a12e1c4be346ea86\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\b403c837ac7d55e559d7b654aa580176\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\b403c837ac7d55e559d7b654aa580176\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\13dc468f7cfee2eb01713f4b7958d2e6\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\13dc468f7cfee2eb01713f4b7958d2e6\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\8042381f1240df5f98ac8c5a464644dd\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\8042381f1240df5f98ac8c5a464644dd\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\2485cb75ca766726d2f85318526894e3\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\2485cb75ca766726d2f85318526894e3\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d4d6f1b618f6740b3852fbc0a4f6708f\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d4d6f1b618f6740b3852fbc0a4f6708f\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\47bf1c1672b530aea741a2298486de75\activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\47bf1c1672b530aea741a2298486de75\activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.2] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\2ccfdb7e7a53b704caa9d7f2a21e6551\core-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.2] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\2ccfdb7e7a53b704caa9d7f2a21e6551\core-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\5aa6e1ee8a4aa87ed09e4136bb1359d6\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\5aa6e1ee8a4aa87ed09e4136bb1359d6\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d5a39d8f51fcfc1b19c3ec4132b72e21\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\d5a39d8f51fcfc1b19c3ec4132b72e21\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\8be5234bafda9ab14ed7f88c9dd40d77\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\8be5234bafda9ab14ed7f88c9dd40d77\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\621e01429d79a08e6530f2907ad873bf\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\621e01429d79a08e6530f2907ad873bf\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\e05a230acf535e3dec39f0f39ed5f0ca\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\e05a230acf535e3dec39f0f39ed5f0ca\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\004fb91108e1b1927119709e2ff43030\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\004fb91108e1b1927119709e2ff43030\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\3a3ed459510bf208b94d56b861c80196\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\3a3ed459510bf208b94d56b861c80196\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\ab93a8dbadb16e1d4464b7fe897665b9\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\ab93a8dbadb16e1d4464b7fe897665b9\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\1a03c688fd0be1e0d5393144f4840983\annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\jinxiu\.gradle\caches\transforms-2\files-2.1\1a03c688fd0be1e0d5393144f4840983\annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+		INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+		ADDED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
+		INJECTED from D:\08Android_Projects\course\Experiment3\musicPlayerApp\src\main\AndroidManifest.xml
