@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity(){
             //如果没有授权，则申请权限
             ActivityCompat.requestPermissions(
                 this@MainActivity,
-                arrayOf<String>(Manifest.permission.READ_EXTERNAL_STORAGE), 100
+                arrayOf<String>(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE), 100
             )
             return
         }

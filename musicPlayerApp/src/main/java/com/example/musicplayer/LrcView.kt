@@ -10,8 +10,8 @@ import android.util.Log
 import android.widget.TextView
 
 class LrcView : TextView {
-    private var width: Float = 0.toFloat()                   //歌词视图宽度
-    private var height: Float = 0.toFloat()                 //歌词视图高度
+    private var width: Float = 800.toFloat()                   //歌词视图宽度
+    private var height: Float = 800.toFloat()                 //歌词视图高度
     private var currentPaint: Paint? = null          //当前画笔对象
     private var notCurrentPaint: Paint? = null      //非当前画笔对象
     private val textHeight = 65f      //文本高度
@@ -57,8 +57,8 @@ class LrcView : TextView {
             return
         }
 
-        currentPaint!!.color = Color.argb(210, 251, 248, 29)
-        notCurrentPaint!!.color = Color.argb(140, 255, 255, 255)
+        currentPaint!!.color = Color.BLUE
+        notCurrentPaint!!.color = Color.BLACK
 
         currentPaint!!.textSize = textMaxSize
         currentPaint!!.typeface = Typeface.SERIF
@@ -78,16 +78,17 @@ class LrcView : TextView {
             //画出本句之前的句子
             for (i in index - 1 downTo 0) {
                 //向上推移
-                tempY = tempY - textHeight
+                tempY -= textHeight
                 canvas.drawText(infos!!.lrcLists[i].content!!, width / 2, tempY, notCurrentPaint!!)
             }
             tempY = height / 2
             //画出本句之后的句子
             for (i in index + 1 until infos!!.lrcLists.size) {
                 //往下推移
-                tempY = tempY + textHeight
+                tempY += textHeight
                 canvas.drawText(infos!!.lrcLists[i].content!!, width / 2, tempY, notCurrentPaint!!)
             }
+//            Log.d(TAG, "--$tempY")
         } catch (e: Exception) {
             text = "暂时没有歌词......"
             Log.d(TAG, "--------- $e")

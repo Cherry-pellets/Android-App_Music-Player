@@ -14,12 +14,16 @@ import android.widget.TextView
 import android.content.Intent
 import android.os.Build
 import android.annotation.TargetApi
+import android.graphics.Paint
+import android.view.animation.AnimationUtils
 import java.lang.Exception
 import java.util.*
 
 class MusicActivity : Activity(), View.OnClickListener{
     //    歌曲列表
     var  songList:List<Album>? = null
+    var path: String = ""
+    var lrcIndex:Int = 0
     //    播放界面的按钮组合
     var musicPlay: ImageView? = null
     var musicPrevious: ImageView? = null
@@ -45,18 +49,22 @@ class MusicActivity : Activity(), View.OnClickListener{
     lateinit var musicTitle: TextView
     lateinit var musicArtist: TextView
     //    自定义的歌词布局
+    lateinit var lrcInfo:LrcInfo
+    lateinit var lrcLists: ArrayList<LrcList>
     lateinit var lrcView : LrcView
 
     private val TAG = "MusicActivity"
     private val NOTIFICATION_BTN_CHANGE = "button in notification has been clicked"
-    val UPDATE_ACTION = "UPDATE_ACTION"  //更新动作
-    val CTL_ACTION = "CTL_ACTION"        //控制动作
-    val MUSIC_CURRENT = "MUSIC_CURRENT"  //音乐当前时间改变动作
-    val MUSIC_DURATION = "MUSIC_DURATION"//音乐播放长度改变动作
-    val MUSIC_PLAYING = "MUSIC_PLAYING"  //音乐正在播放动作
-    val REPEAT_ACTION = "REPEAT_ACTION"  //音乐重复播放动作
-    val SHUFFLE_ACTION = "RANDOM_ACTION"//音乐随机播放动作
-    val PLAY_STATUE = "PLAY_STATUE"      //更新播放状态
+    private val UPDATE_ACTION = "UPDATE_ACTION"  //更新动作
+    private val CTL_ACTION = "CTL_ACTION"        //控制动作
+    private val MUSIC_CURRENT = "MUSIC_CURRENT"  //音乐当前时间改变动作
+    private val MUSIC_DURATION = "MUSIC_DURATION"//音乐播放长度改变动作
+    private val MUSIC_PLAYING = "MUSIC_PLAYING"  //音乐正在播放动作
+    private val REPEAT_ACTION = "REPEAT_ACTION"  //音乐重复播放动作
+    private val SHUFFLE_ACTION = "RANDOM_ACTION"//音乐随机播放动作
+    private val PLAY_STATUE = "PLAY_STATUE"      //更新播放状态
+    private val INIT_LRC = "init Lrc"
+    private  val  UPDATE_LRC = "update lrc"
 
     var mBound: Boolean? = false
     //    记录鼠标点击了几次
@@ -73,7 +81,7 @@ class MusicActivity : Activity(), View.OnClickListener{
             when (msg.what) {
                 0 -> {
                     //从bundle中获取进度，是double类型，播放的百分比
-                    val progress = msg.getData().getDouble("progress")
+                    val progress = msg.data.getDouble("progress")
 
                     //根据播放百分比，计算seekbar的实际位置
                     val max = seekBar.max
@@ -88,25 +96,7 @@ class MusicActivity : Activity(), View.OnClickListener{
 
         }
     }
-    //   通过bindService与service通信
-/*    private val mConnection = object : ServiceConnection {
-        override fun onServiceConnected(className: ComponentName, binder: IBinder) {
-            val myBinder = binder as MusicService.MyBinder
-            //获取service
-            mService = myBinder.service as MusicService
-            //绑定成功
-            mBound = true
-            //开启线程，更新UI
-            myThread.start()
-            musicPlay!!.setImageDrawable(resources.getDrawable(R.drawable.play))
-            mService.play()
-            flag = true
-        }
-        override fun onServiceDisconnected(arg0: ComponentName) {
-            mBound = false
-        }
-    }*/
-//   接收广播，更新播放页面的播放状态
+    //   接收广播，更新播放页面的播放状态
     private val musicReceiver = object: BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             when(intent?.action) {
@@ -144,6 +134,22 @@ class MusicActivity : Activity(), View.OnClickListener{
                         isPlaying = false
                     }
                 }
+                INIT_LRC -> {
+                    path = intent.getStringExtra("path")!!
+                    //建立歌词对象
+                    val lrcParser = LrcParse("$path")
+                    //读歌词，并将数据传给歌词信息类
+                    lrcInfo = lrcParser.readLrc()
+                    //获得歌词中的结点
+                    lrcLists = lrcInfo.lrcLists
+                    lrcView.setmLrcList(lrcInfo)
+//                    drawLrc()
+                }
+                UPDATE_LRC -> {
+                    lrcIndex = intent.getIntExtra("lrcIndex", 0)
+                    lrcView.setIndex(lrcIndex)
+                    lrcView.invalidate()
+                }
             }
         }
     }
@@ -153,7 +159,6 @@ class MusicActivity : Activity(), View.OnClickListener{
         setContentView(R.layout.activity_music)
         initView()
 
-        Log.d(TAG, "music activity onCreate")
         position = intent.getIntExtra("position", -1)
         val albumList = intent.getSerializableExtra("songList") as AlbumList
         songList = albumList.albumList
@@ -171,6 +176,8 @@ class MusicActivity : Activity(), View.OnClickListener{
         filter.addAction(MUSIC_CURRENT)
         filter.addAction(MUSIC_DURATION)
         filter.addAction(PLAY_STATUE)
+        filter.addAction(INIT_LRC)
+        filter.addAction(UPDATE_LRC)
         registerReceiver(musicReceiver, filter)
 
         //设置响应事件
@@ -185,10 +192,6 @@ class MusicActivity : Activity(), View.OnClickListener{
                 //seekbar的拖动位置
                 val dest = seekBar.progress
                 changeProgress(dest)
-                //seekbar的最大值
-//                val max = seekBar.max
-                //调用service调节播放进度
-//                mService.setProgress(max, dest)
             }
             override fun onProgressChanged(arg0: SeekBar, arg1: Int, arg2: Boolean) {
             }
@@ -196,9 +199,6 @@ class MusicActivity : Activity(), View.OnClickListener{
             }
         })
         playMusic()
-//        musicPlay!!.setOnClickListener{
-//            handlePlayMusic()
-//        }
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -283,8 +283,6 @@ class MusicActivity : Activity(), View.OnClickListener{
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     fun playPreviousMusic() {
         position -= 1
-        //   musicPlay.setImageDrawable(getResources().getDrawable(R.drawable.musicpause,null));
-
         if (position < 0) {
             position = songList!!.size - 1
         }
@@ -330,46 +328,6 @@ class MusicActivity : Activity(), View.OnClickListener{
         isPlaying = true
 
     }
-
-    //实现runnable接口，多线程实时更新进度条
-    inner class UpdateProgress : Runnable {
-        //通知UI更新的消息
-        //用来向UI线程传递进度的值
-        internal var data = Bundle()
-        //更新UI间隔时间
-        internal var milliseconds = 100
-        internal var progress: Double = 0.toDouble()
-        override fun run() {
-            //用来标识是否还在播放状态，用来控制线程退出
-            while (playStatus) {
-                try {
-                    //绑定成功才能开始更新UI
-                    if (mBound!!) {
-                        //发送消息，要求更新UI
-                        val msg = Message()
-                        data.clear()
-                        progress = mService.progress
-                        msg.what = 0
-                        data.putDouble("progress", progress)
-                        msg.setData(data)
-                        mHandler.sendMessage(msg)
-                    }
-                    Thread.sleep(milliseconds.toLong())
-                    //Thread.currentThread().sleep(milliseconds);
-                    //每隔100ms更新一次UI
-                } catch (e: InterruptedException) {
-                    e.printStackTrace()
-                }
-
-            }
-        }
-    }
-
-//    fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        //      getMenuInflater().inflate(R.menu.main, menu);
-//        return true
-//    }
 
     public override fun onDestroy() {
         //销毁activity时，要记得销毁线程
@@ -420,5 +378,11 @@ class MusicActivity : Activity(), View.OnClickListener{
         seekBar = findViewById(R.id.MusicProgress)
         musicTitle = findViewById(R.id.music_title)
         musicArtist = findViewById(R.id.music_artist)
+        lrcView = findViewById(R.id.lrcView)
+    }
+
+    fun drawLrc() {
+        val animation = AnimationUtils.loadAnimation(this, R.anim.lrc_anim)
+        lrcView.startAnimation(animation)
     }
 }

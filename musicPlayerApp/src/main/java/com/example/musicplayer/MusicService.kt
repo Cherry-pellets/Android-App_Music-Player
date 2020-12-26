@@ -11,7 +11,6 @@ import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.*
 import android.util.Log
-import android.view.animation.AnimationUtils
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 
@@ -21,14 +20,14 @@ class MusicService : Service() {
     internal var path: String? = null // 歌曲的绝对路径
     internal var title: String? = null // 歌曲名
     internal var artist: String? = null // 歌手
-
+    // 歌词信息和列表
     lateinit var lrcInfo:LrcInfo
     lateinit var lrcLists: ArrayList<LrcList>
-    var index = 0
+    var index = 0  // 歌词行数下标
     var duration:Int = 0   // 歌曲时长
     private var currentTime = 0
     private var position = 0
-    private var msg: Int = 0                //播放信息
+    private var msg: Int = 0     //播放信息-与MusicActivity对应
     private var isPause: Boolean = false
     var palyflag = 0
 
@@ -47,10 +46,10 @@ class MusicService : Service() {
     val MUSIC_CURRENT = "MUSIC_CURRENT"  //当前音乐播放时间更新
     val MUSIC_DURATION = "MUSIC_DURATION"//播放音乐长度更新
     val PLAY_STATUE = "PLAY_STATUE"      //更新播放状态
-
     private val STATUS_BAR_COVER_CLICK_ACTION = "click button in notification"
     private val NOTIFICATION_BTN_CHANGE = "button in notification has been clicked"
-
+    private val INIT_LRC = "init Lrc"
+    private  val  UPDATE_LRC = "update lrc"
 
     //返回播放进度:百分比
     val progress: Double
@@ -69,7 +68,6 @@ class MusicService : Service() {
         override fun onReceive(context: Context?, intent: Intent?) {
             Log.d(TAG, "click button in notification")
 //                    处理通知栏按钮被点击后的事情
-
             // 1、发送广播消息给MusicActivity,使其改变播放状态
             val notificationBtnReceiver = Intent()
             notificationBtnReceiver.action = NOTIFICATION_BTN_CHANGE
@@ -87,7 +85,7 @@ class MusicService : Service() {
                     if (mediaPlayer != null) {
                         currentTime = mediaPlayer!!.currentPosition
                         val intent = Intent()
-                        intent.setAction(MUSIC_CURRENT)
+                        intent.action = MUSIC_CURRENT
                         intent.putExtra("currentTime", currentTime)
                         sendBroadcast(intent) // 给MusicActivity发送广播
                         sendEmptyMessageDelayed(1, 1000)
@@ -107,9 +105,7 @@ class MusicService : Service() {
                 3 -> palyflag = 3  //随机
                 else -> {
                 }
-            }//            if(action.equals(SHOW_LRC)){
-            //                current = intent.getIntExtra("listPosition", -1);
-            //                initLrc();
+            }
         }
     }
 
@@ -125,7 +121,6 @@ class MusicService : Service() {
             intent.putExtra("playstatue", false)
             sendBroadcast(intent)
 
-            //       Toast.makeText(getApplicationContext(),"服务完成了",Toast.LENGTH_SHORT).show();
             if (palyflag == 2) {
                 val loopintent = Intent(PLAY_STATUE)
                 // 发送播放完毕的信号，更新播放状态
@@ -174,11 +169,9 @@ class MusicService : Service() {
                 play(0)
             }
         }
-
-//        musicReceiver = MusicReceiver()
+        // 声明要接收哪些广播，Action就是广播的标志
         val filter = IntentFilter()
         filter.addAction(CTL_ACTION)
-        //     filter.addAction(SHOW_LRC);
         registerReceiver(musicReceiver, filter)
     }
     //每次程序执行时调用
@@ -250,6 +243,8 @@ class MusicService : Service() {
             mediaPlayer!!.setDataSource(path)
             mediaPlayer!!.prepare() // 进行缓冲
             mediaPlayer!!.setOnPreparedListener(PreparedListener(currentTime))// 注册一个监听器
+
+            initLrc()
             //更新播放状态
             val intent = Intent(PLAY_STATUE)
             // 发送播放完毕的信号，更新播放状态
@@ -295,7 +290,8 @@ class MusicService : Service() {
         if (mediaPlayer != null) {
             mediaPlayer!!.stop()
             try {
-                mediaPlayer!!.prepare() // 在调用stop后如果需要再次通过start进行播放,需要之前调用prepare函数
+                // 在调用stop后如果需要再次通过start进行播放,需要之前调用prepare函数
+                mediaPlayer!!.prepare()
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -322,24 +318,6 @@ class MusicService : Service() {
             sendBroadcast(intent)
         }
     }
-    //通过activity调节播放进度
-    fun setProgress(max: Int, dest: Int) {
-        val time = mediaPlayer!!.duration
-        mediaPlayer!!.seekTo(time * dest / max)
-    }
-    /*    //测试播放音乐
-        fun play() {
-            if (mediaPlayer != null) {
-                mediaPlayer!!.start()
-            }
-    //        initLrc()
-        }
-        //暂停音乐
-        fun pause() {
-            if (mediaPlayer != null && mediaPlayer!!.isPlaying) {
-                mediaPlayer!!.pause()
-            }
-        }*/
     //service销毁时，停止播放音乐，释放资源
     override fun onDestroy() {
         // 在activity结束的时候回收资源
@@ -379,6 +357,7 @@ class MusicService : Service() {
             val intent = Intent(this, MusicService::class.java)
             pi = PendingIntent.getActivity(this, 0, intent, 0)
 //             用Builder构造器创建Notification
+
             notification = NotificationCompat.Builder(this, "musicPlayer")
                 .setContent(remoteView)   // 自定义的布局视图
                 .setContentTitle("$title")
@@ -387,6 +366,7 @@ class MusicService : Service() {
                 .setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.large_icon))
                 .setContentIntent(pi) // 点击通知栏跳转到播放页面
                 .build()
+            notification.flags = notification.flags or Notification.FLAG_NO_CLEAR  // 让通知不被清除
             manager.notify(notifyId, notification)
         } catch (e: java.lang.Exception) {
             Log.d(TAG, "exp3------$e")
@@ -420,19 +400,19 @@ class MusicService : Service() {
         lrcInfo = lrcParser.readLrc()
         //获得歌词中的结点
         lrcLists = lrcInfo.lrcLists
-        //在musicActivity里面设置静态来共享数据
-        MusicActivity().lrcView.setmLrcList(lrcInfo)
-        //切换带动画显示歌词
-        MusicActivity().lrcView.setAnimation(
-            AnimationUtils.loadAnimation(
-                this@MusicService, R.anim.lrc_anim))
+//        发送广播，初始化歌词
+        val intent = Intent(INIT_LRC)
+        intent.putExtra("path", path)
+        sendBroadcast(intent)
+
         mHandler.post(mRunnable)
     }
 
     var mRunnable: Runnable = object : Runnable {
         override fun run() {
-            MusicActivity().lrcView.setIndex(lrcIndex())
-            MusicActivity().lrcView.invalidate()
+            val intent = Intent(UPDATE_LRC)
+            intent.putExtra("lrcIndex", lrcIndex())
+            sendBroadcast(intent)
             mHandler.postDelayed(this, 100)
         }
     }

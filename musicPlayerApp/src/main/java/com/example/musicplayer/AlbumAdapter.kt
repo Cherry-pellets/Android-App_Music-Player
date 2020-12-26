@@ -43,26 +43,6 @@ class AlbumAdapter(val albumList: ArrayList<Album>): RecyclerView.Adapter<AlbumA
             mOnItemClickListerner!!.onItemClick(position, it.context)
 
         }
-
-/*
-        holder.itemView.setOnClickListener{
-            val position = holder.adapterPosition
-            val album = albumList[position]
-
-            val intent = Intent(it.context, MusicService::class.java)
-            intent.putExtra("url", album.url)
-            intent.putExtra("title", album.title)
-            intent.putExtra("artist", album.artist)
-            intent.putExtra("position", position)  // 当前歌曲在列表中的位置
-            it.context.stopService(intent)
-            it.context.startService(intent)  // 开启一个Service
-
-            val intent2 = Intent(it.context, MusicActivity::class.java)
-            intent2.putExtra("url", album.url)
-            intent2.putExtra("title", album.title)
-            intent2.putExtra("artist", album.artist)
-            it.context.startActivity(intent2)  // 跳到播放页面
-        }*/
     }
     override fun getItemCount() = albumList.size
 }

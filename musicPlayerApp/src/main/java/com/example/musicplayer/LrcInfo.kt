@@ -1,7 +1,8 @@
 package com.example.musicplayer
+import java.io.Serializable
 import java.util.ArrayList
 
-class LrcInfo {
+class LrcInfo:Serializable {
     var title: String? = null//标题
     var artist: String? = null//歌手
     var album: String? = null//专辑名字

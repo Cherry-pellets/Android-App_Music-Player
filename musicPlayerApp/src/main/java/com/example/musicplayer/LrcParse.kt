@@ -47,7 +47,7 @@ class LrcParse(path: String) {
             e.printStackTrace()
             val lrcList = LrcList()
             //设置时间点和内容的映射
-            lrcList.content = "歌词文件没发现！"
+            lrcList.content = "未发现歌词......"
             lrcLists.add(lrcList)
             lrcInfo.lrcLists = lrcLists
             return lrcInfo
